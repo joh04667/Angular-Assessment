@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app='Assessment'>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Assessment</title>
+    <script src="angular.min.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="bootstrap.css" />
+  </head>
+  <body ng-controller="MainController as main">
+    <div class="well">
+      <input type="text" placeholder="Type here..." ng-model="main.boxMessage" />
+      <input type="submit" class="btn tbn-default" ng-click="main.submit()"/>
+    </div> <!-- well -->
+
+    <div class="col-lg-6" ng-show="main.currentMessage">
+      <h3 >Message is:</h3>
+      {{main.currentMessage}}
+    </div>
+
+    <div class="col-lg-6" ng-show="main.previousMessages.length">
+      <h3>Previous messages:</h3>
+      <ul>
+        <li ng-repeat="message in main.previousMessages track by $index">
+          {{message}}
+        </li>
+      </ul>
+    </div>
+
+  </body>
+</html>
